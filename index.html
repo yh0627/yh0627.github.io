@@ -152,6 +152,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-课堂笔记1029am" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/29/课堂笔记1029am/">课堂笔记1029am</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/29/课堂笔记1029am/" class="archive-article-date">
+  	<time datetime="2019-10-29T07:27:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>总结回顾   </p>
+<h2 id="JSP-Servlet"><a href="#JSP-Servlet" class="headerlink" title="JSP/Servlet"></a>JSP/Servlet</h2><h1 id="一、相同点："><a href="#一、相同点：" class="headerlink" title="一、相同点："></a>一、相同点：</h1><ol>
+<li>处理后台逻辑，作为mvc控制；</li>
+<li>9个内置对象(request、response、session、application、page、out、 config、pageContext、exception)，内置对象作用域：page &lt; request/response &lt; session &lt; application。   page.setAttribute(“username”,”sam”); String id = page.getAttribute(“username”); request.setAttribute(“username”,”sam”); String id = request.getAttribute(“username”); session.setAttribute(“username”,”sam”); String id = session.getAttribute(“username”); application.setAttribute(“username”,”sam”); String id = application.getAttribute(“username”); </li>
+<li>都可用Java语言。  </li>
+<li>百度：可以写Java语句，包括流程控制、事务管理。Jsp是在Servlet基础上推出的，即Jsp从本质上来讲是Servlet，所以Jsp具有Servlet的功能，也就理所当然支持Java语句。<h1 id="二、不同点："><a href="#二、不同点：" class="headerlink" title="二、不同点："></a>二、不同点：</h1></li>
+<li>JSP可作为前端显示页面，Servlet只能作后台控制; </li>
+<li>JSP可内嵌html、EL、JSTL和Java，而Servlet只能有 Java；</li>
+<li>JSP控制不需要项目中去注册、而Servlet必须注册(web.xml/注解) </li>
+<li>JSP常作为小型项目，Servlet常用作 框架类的大型项目；</li>
+</ol>
+<p>本堂课程知识要点<br>页面跳转<br>JSP Servlet jsp如何获取数据，并显示出来(out对象)。<br>作业：用提交表单数据到jsp的方式，实现登录功能。<br>拓展：<br>————————————————————————————————————<br>Spring、SpringMVC(Struts2.0)、MyBatis SSM SpringBoot SpringCloud</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/29/课堂笔记1029am/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-课堂笔记1028pm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,7 +246,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><h1 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h1><ul>
+        <h2 id="JSP、"><a href="#JSP、" class="headerlink" title="JSP、"></a>JSP、</h2><h1 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h1><ul>
 <li>（一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，<br>所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。</li>
 <li>（二）Response：对客户的请求做出的响应，向客户端发送数据，该对象可以设置重定向response.sendRedirect(String URL)，是客户端行为，是两次请求，所以页面的URL为二次请求处理的响<br>应页面的URL。</li>
 <li>（三）Session：该对象是客户端与服务器的一次会话，只要不关闭服务器的所有页面（离开这个服务器），就只视为一次会话。Session在第一个JSP页面被装载时自动创建，完成会话期管理。当一个客户首次访问服务器上的一个JSP页面时，JSP 引擎产生一个Session对象，同时分配一个String类型的ID号，JSP引擎同时将这换个ID号发送到客户端，存放在Cookie（要求服务器启用Cookie权限）中，这样Session对象，直到客户关闭浏览器后，服务器端该客户的Session对象才取消，并且和客户的会话对应关系消失。当客户重新打开浏览器再连接到该服务器时，服务器为该客户再重新创建一个新的Session对象拥有新的ID号。常用方法为String getId()获取ID号以及Boolean isNew()判断是否是一个新的客户。Session可以理解为线程私有的。</li>

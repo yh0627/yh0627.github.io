@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>课堂笔记1028pm | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSP一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （二">
+  <meta name="description" content="JSP、一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （">
 <meta property="og:type" content="article">
 <meta property="og:title" content="课堂笔记1028pm">
 <meta property="og:url" content="http://yoursite.com/2019/10/28/课堂笔记1028pm/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="JSP一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （二">
+<meta property="og:description" content="JSP、一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-29T00:13:36.100Z">
+<meta property="og:updated_time" content="2019-10-29T01:03:07.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="课堂笔记1028pm">
-<meta name="twitter:description" content="JSP一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （二">
+<meta name="twitter:description" content="JSP、一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。 （">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><h1 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h1><ul>
+        <h2 id="JSP、"><a href="#JSP、" class="headerlink" title="JSP、"></a>JSP、</h2><h1 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h1><ul>
 <li>（一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，<br>所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。</li>
 <li>（二）Response：对客户的请求做出的响应，向客户端发送数据，该对象可以设置重定向response.sendRedirect(String URL)，是客户端行为，是两次请求，所以页面的URL为二次请求处理的响<br>应页面的URL。</li>
 <li>（三）Session：该对象是客户端与服务器的一次会话，只要不关闭服务器的所有页面（离开这个服务器），就只视为一次会话。Session在第一个JSP页面被装载时自动创建，完成会话期管理。当一个客户首次访问服务器上的一个JSP页面时，JSP 引擎产生一个Session对象，同时分配一个String类型的ID号，JSP引擎同时将这换个ID号发送到客户端，存放在Cookie（要求服务器启用Cookie权限）中，这样Session对象，直到客户关闭浏览器后，服务器端该客户的Session对象才取消，并且和客户的会话对应关系消失。当客户重新打开浏览器再连接到该服务器时，服务器为该客户再重新创建一个新的Session对象拥有新的ID号。常用方法为String getId()获取ID号以及Boolean isNew()判断是否是一个新的客户。Session可以理解为线程私有的。</li>
@@ -304,6 +304,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/29/课堂笔记1029am/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          课堂笔记1029am
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/21/课堂笔记1021/" id="article-nav-older" class="article-nav-link-wrap">
