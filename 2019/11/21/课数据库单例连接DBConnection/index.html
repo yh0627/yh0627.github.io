@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JSP项目常见问题解决方案辑录_v1 | Hexo</title>
+  <title>课数据库单例连接DBConnection | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Eclipse导入MyEclipse中的项目—把Webroot改为WebContent1、进入项目目录，找到.project文件，打开。2、找到…代码段。3、在第2步的代码段中加入如下标签内容并保存：org.eclipse.wst.common.project.facet.core.natureorg.eclipse.wst.common.modulecore.ModuleCoreNatureor">
+  <meta name="description" content="package demo.sam.singleton;import java.sql.*;   public class DBConnection{    //声明Connection的单例对象    private static Connection connection = null;    /**     * 获取Connection静态实例, 确保其独一性     /    public">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSP项目常见问题解决方案辑录_v1">
-<meta property="og:url" content="http://yoursite.com/2019/11/08/JSP项目常见问题解决方案辑录-v1/index.html">
+<meta property="og:title" content="课数据库单例连接DBConnection">
+<meta property="og:url" content="http://yoursite.com/2019/11/21/课数据库单例连接DBConnection/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Eclipse导入MyEclipse中的项目—把Webroot改为WebContent1、进入项目目录，找到.project文件，打开。2、找到…代码段。3、在第2步的代码段中加入如下标签内容并保存：org.eclipse.wst.common.project.facet.core.natureorg.eclipse.wst.common.modulecore.ModuleCoreNatureor">
+<meta property="og:description" content="package demo.sam.singleton;import java.sql.*;   public class DBConnection{    //声明Connection的单例对象    private static Connection connection = null;    /**     * 获取Connection静态实例, 确保其独一性     /    public">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-08T03:22:27.839Z">
+<meta property="og:updated_time" content="2019-11-21T03:06:18.974Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSP项目常见问题解决方案辑录_v1">
-<meta name="twitter:description" content="Eclipse导入MyEclipse中的项目—把Webroot改为WebContent1、进入项目目录，找到.project文件，打开。2、找到…代码段。3、在第2步的代码段中加入如下标签内容并保存：org.eclipse.wst.common.project.facet.core.natureorg.eclipse.wst.common.modulecore.ModuleCoreNatureor">
+<meta name="twitter:title" content="课数据库单例连接DBConnection">
+<meta name="twitter:description" content="package demo.sam.singleton;import java.sql.*;   public class DBConnection{    //声明Connection的单例对象    private static Connection connection = null;    /**     * 获取Connection静态实例, 确保其独一性     /    public">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,28 +154,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JSP项目常见问题解决方案辑录-v1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-课数据库单例连接DBConnection" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JSP项目常见问题解决方案辑录_v1
+      课数据库单例连接DBConnection
     </h1>
   
 
         
-        <a href="/2019/11/08/JSP项目常见问题解决方案辑录-v1/" class="archive-article-date">
-  	<time datetime="2019-11-08T01:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
+        <a href="/2019/11/21/课数据库单例连接DBConnection/" class="archive-article-date">
+  	<time datetime="2019-11-21T02:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Eclipse导入MyEclipse中的项目"><a href="#Eclipse导入MyEclipse中的项目" class="headerlink" title="Eclipse导入MyEclipse中的项目"></a>Eclipse导入MyEclipse中的项目</h1><h2 id="—把Webroot改为WebContent"><a href="#—把Webroot改为WebContent" class="headerlink" title="—把Webroot改为WebContent"></a>—把Webroot改为WebContent</h2><p>1、进入项目目录，找到.project文件，打开。<br>2、找到…代码段。<br>3、在第2步的代码段中加入如下标签内容并保存：<br>org.eclipse.wst.common.project.facet.core.nature<br>org.eclipse.wst.common.modulecore.ModuleCoreNature<br>org.eclipse.jem.workbench.JavaEMFNature<br>4、项目目录下的.classpath文件，把所有Webroot字符串改为WebContent，保存。<br>5、把目录下webroot的文件夹改名为WebContent。<br>6、在eclipse中Java Resources:src目录的Libraries里添加web服务器需要的包，选择BiuldPath—–&gt;configure Build Path——&gt;当前窗面下选择选择Add Library—–&gt;server Runtime——&gt;选择需要的web服务器<br>7、在eclipse的项目上点右键，刷新项目。<br>8、在项目上点右键，进入属性（properties）<br>9、在左侧列表项目中点击选择“Project Facets”，在右侧选择“Dynamic Web Module”和”Java”，点击保存即可。<br>这时应该可以在eclipse下正常启动项目了</p>
-<h1 id="Eclipse下config-json文件第一行报错解决方案"><a href="#Eclipse下config-json文件第一行报错解决方案" class="headerlink" title="Eclipse下config.json文件第一行报错解决方案"></a>Eclipse下config.json文件第一行报错解决方案</h1><p>如下图<br>!<br>解决方案<br>取消对json文件的校验：windows-preferences-Validation，然后再右边取消json校验<br>如下图<br>！<br>注意，这里的validation不是一级目录json下的，这里的validation是个一级目录。<br>（如下图）</p>
+        <p>package demo.sam.singleton;<br>import java.sql.*;  </p>
+<p>public class DBConnection{<br>    //声明Connection的单例对象<br>    private static Connection connection = null;<br>    /**<br>     * 获取Connection静态实例, 确保其独一性<br>     <em>/<br>    public static Connection getConnection(){<br>        if(DBConnection.connection == null){//若Connection未被创建<br>            initConnection();//赋值<br>        }<br>        return DBConnection.connection;//返回Connection的单例对象<br>    }<br>    /*</em><br>     * 初始化JDBC连接实例对象<br>     */<br>    private static void initConnection(){<br>        try{<br>            Class.forName(“com.mysql.jdbc.Driver”);//加载驱动<br>            String url = “jdbc:mysql://localhost:3306/stu”;<br>            String user = “root”;<br>            String pw = “root”;<br>            DBConnection.connection =DriverManager.getConnection(url, user, pw);<br>        }<br>        catch (ClassNotFoundException e){<br>            System.out.println(e.getMessage());<br>            System.exit(0);<br>        }<br>        catch (SQLException e){<br>            System.out.println(e.getMessage());<br>            System.exit(0);<br>        }<br>        catch (Exception e){<br>        }<br>    }  </p>
+<p>/**<br>     * 关闭数据库连接<br>     * @param conn Connection对象<br>     */<br>    public static void closeConnection(Connection conn){<br>        // 判断conn是否为空<br>        if(conn != null){<br>            try {<br>                conn.close();    // 关闭数据库连接<br>            } catch (SQLException e) {<br>                e.printStackTrace();<br>            }<br>        }<br>    }<br>}  </p>
 
       
 
@@ -255,7 +256,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/08/JSP项目常见问题解决方案辑录-v1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/21/课数据库单例连接DBConnection/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -269,18 +270,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/21/课堂笔记——jsp后注销/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/21/数据库单例连接TestDB/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          课堂笔记——jsp后注销
+          数据库单例连接TestDB
         
       </div>
     </a>
   
   
-    <a href="/2019/11/08/MySQL数据库增删改查SQL语句/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MySQL数据库增删改查SQL语句</div>
+    <a href="/2019/11/21/课堂笔记——jsp登陆流程梳理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">课堂笔记——jsp登陆流程梳理</div>
       <i class="icon-circle-right"></i>
     </a>
   

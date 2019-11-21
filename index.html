@@ -152,6 +152,269 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据库单例连接TestDB" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/21/数据库单例连接TestDB/">数据库单例连接TestDB</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/21/数据库单例连接TestDB/" class="archive-article-date">
+  	<time datetime="2019-11-21T03:01:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>package demo.sam.singleton;<br>import java.sql.*;  </p>
+<p>public class TestDB {<br>/*public static void main(String args[]) throws Exception{<br>    //Always returns the same instance<br>        Connection connection = DBConnection.getConnection();        </p>
+<p>ResultSet rows = null;<br>        Statement s = connection.createStatement();<br>        String select = “select * from student;”;<br>        rows = s.executeQuery(select);<br>        System.out.println(rows.next());<br>        while(rows.next()){<br>            System.out.println(rows.getRow()+”abc”);  </p>
+<p>System.out.println(rows.getString(“name”));<br>        }<br>        //Get connection again, still same instance<br>        Connection connection2 = DBConnection.getConnection();<br>        if(connection2 == connection){<br>            System.out.println(“Same Instance”);<br>        }<br>    }*/</p>
+<p>public static void main(String[] args) {<br>        Connection conn = DBConnection.getConnection();<br>        String sql = “select * from user”;//查询user表<br>        try {<br>        PreparedStatement ps = conn.prepareStatement(sql);//PreparedStatement对象可以防止sql注入，而Statement不能防止sql注入,参考<a href="https://blog.csdn.net/czh500/article/details/88202971" target="_blank" rel="noopener">https://blog.csdn.net/czh500/article/details/88202971</a><br>        ResultSet rs = ps.executeQuery();//数据库查询结果集ResultSet对象<br>        while (rs!=null&amp;&amp;rs.next()) {<br>            //在此添加操作<br>            rs.close();//关闭rs<br>            ps.close();//关闭ps<br>        }<br>    } catch (SQLException e) {<br>        // TODO Auto-generated catch block<br>        e.printStackTrace();<br>    }finally {<br>        DBConnection.closeConnection(conn);<br>    }<br>    }<br>} </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/21/数据库单例连接TestDB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-课数据库单例连接DBConnection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/21/课数据库单例连接DBConnection/">课数据库单例连接DBConnection</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/21/课数据库单例连接DBConnection/" class="archive-article-date">
+  	<time datetime="2019-11-21T02:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>package demo.sam.singleton;<br>import java.sql.*;  </p>
+<p>public class DBConnection{<br>    //声明Connection的单例对象<br>    private static Connection connection = null;<br>    /**<br>     * 获取Connection静态实例, 确保其独一性<br>     <em>/<br>    public static Connection getConnection(){<br>        if(DBConnection.connection == null){//若Connection未被创建<br>            initConnection();//赋值<br>        }<br>        return DBConnection.connection;//返回Connection的单例对象<br>    }<br>    /*</em><br>     * 初始化JDBC连接实例对象<br>     */<br>    private static void initConnection(){<br>        try{<br>            Class.forName(“com.mysql.jdbc.Driver”);//加载驱动<br>            String url = “jdbc:mysql://localhost:3306/stu”;<br>            String user = “root”;<br>            String pw = “root”;<br>            DBConnection.connection =DriverManager.getConnection(url, user, pw);<br>        }<br>        catch (ClassNotFoundException e){<br>            System.out.println(e.getMessage());<br>            System.exit(0);<br>        }<br>        catch (SQLException e){<br>            System.out.println(e.getMessage());<br>            System.exit(0);<br>        }<br>        catch (Exception e){<br>        }<br>    }  </p>
+<p>/**<br>     * 关闭数据库连接<br>     * @param conn Connection对象<br>     */<br>    public static void closeConnection(Connection conn){<br>        // 判断conn是否为空<br>        if(conn != null){<br>            try {<br>                conn.close();    // 关闭数据库连接<br>            } catch (SQLException e) {<br>                e.printStackTrace();<br>            }<br>        }<br>    }<br>}  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/21/课数据库单例连接DBConnection/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-课堂笔记——jsp登陆流程梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/21/课堂笔记——jsp登陆流程梳理/">课堂笔记——jsp登陆流程梳理</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/21/课堂笔记——jsp登陆流程梳理/" class="archive-article-date">
+  	<time datetime="2019-11-21T02:55:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSP登录<br>1.表单提交数据到Servlet的方式<br>整体流程：登录页面提交form表单(get或post方式到action指定的位置)的数据到一个Servlet，在其内进行判定是否登录。<br>(1)Servlet中的doPost()方法：<br>    A.用Request.getParameter(“[input标签的name属性名]”)方法获取登录页面提交过来的表单数据。<br>    B.通过sql的JDBC的Jar包导入，进行数据库连接(连接代码见以往的连接代码)，用sql(类似于select * from user where id =’’, pwd=’’;)查询语句。<br>    C.比对判定以上两项的数据，页面跳转(“转发”和”重定向”两种方式取其一)。<br>(2)跳转到的页面：登录成功页面(在Session中保存用户信息)/不跳转  </p>
+<p>2.表单提交数据到JSP的方式<br>整体流程：登录页面提交form表单(get或post方式到action指定的位置)的数据到一个JSP，在其内进行判定是否登录。<br>(1)JSP中的&lt;% %&gt;脚本内容：<br>    A.用Request.getParameter(“[input标签的name属性名]”)方法获取登录页面提交过来的表单数据。<br>    B.通过sql的JDBC的Jar包导入，进行数据库连接(连接代码见以往的连接代码)，用sql(类似于select * from user where id =’’, pwd=’’;)查询语句。<br>    C.比对判定以上两项的数据，页面跳转(“转发”和”重定向”两种方式取其一)。<br>(2)跳转到的页面：登录成功页面(在Session中保存用户信息)/重定向到登录JSP页面，为地址栏添加一个属性(response.sendRedirect(“index.jsp?info=”登录失败”))  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/21/课堂笔记——jsp登陆流程梳理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-课堂笔记——jsp后注销" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/21/课堂笔记——jsp后注销/">课堂笔记——jsp后注销</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/21/课堂笔记——jsp后注销/" class="archive-article-date">
+  	<time datetime="2019-11-21T02:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>//登录成功<br>response.sendRedirect(“/success.jsp”);  </p>
+<p>欢迎页面</p>
+<p>&lt;%<br>//从Request获取id、pwd、name的值<br>String id= request.getParameter(“id”);<br>String pwd= request.getParameter(“pwd”);<br>String name= request.getParamete(“name”);<br>//获取Session对象<br>String path = request.getContextPath();<br>HttpSession session=request.getSession();<br>//向Session对象内放属性<br>session.setAttribute(“id”, id);<br>session.setAttribute(“pwd”, pwd);<br>session.setAttribute(“name”, name);<br>//页面输出<br>out.println(“<span>欢迎”+name+”登录</span>“);<br>//注销链接<br><a href="out.jsp">注销</a><br>%&gt;</p>
+<p>注销页面(out.jsp)如下：  </p>
+<p>&lt;%<br>//获取Session对象<br>String path = request.getContextPath();<br>HttpSession session=request.getSession();<br>//清空Session中的登录信息相关属性<br>    session.removeAttribute(“id”);<br>    session.removeAttribute(“pwd”);<br>       session.removeAttribute(“name”);<br>//上下文路径<br>String path = request.getContextPath();<br>//重定向到首页(未登录状态)<br>response.sendRedirect(path+”/index.jsp”);<br>%&gt;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/21/课堂笔记——jsp后注销/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JSP项目常见问题解决方案辑录-v1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -666,144 +929,10 @@ select 列 别名 from 表名;      </code></pre><p>语句的执行顺序：from
 
 
   
-    <article id="post-我真的是" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/12/我真的是/">我真的是</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/12/我真的是/" class="archive-article-date">
-  	<time datetime="2019-10-12T06:30:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#太难了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/12/我真的是/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/12/hello-world/" class="archive-article-date">
-  	<time datetime="2019-10-12T06:02:04.118Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/12/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
