@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/11 | Hexo</title>
+  <title>DAO连接数据库 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/11/index.html">
+  <meta name="description" content="package His_yh; import java.io.IOException;import java.sql.Connection;import java.sql.DriverManager;import java.sql.PreparedStatement;import java.sql.ResultSet;import java.sql.Statement;import java.ut">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAO连接数据库">
+<meta property="og:url" content="http://yoursite.com/2019/11/26/DAO连接数据库/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="package His_yh; import java.io.IOException;import java.sql.Connection;import java.sql.DriverManager;import java.sql.PreparedStatement;import java.sql.ResultSet;import java.sql.Statement;import java.ut">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-26T01:16:09.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="DAO连接数据库">
+<meta name="twitter:description" content="package His_yh; import java.io.IOException;import java.sql.Connection;import java.sql.DriverManager;import java.sql.PreparedStatement;import java.sql.ResultSet;import java.sql.Statement;import java.ut">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,211 +154,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-DAO连接数据库" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      DAO连接数据库
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/26/DAO连接数据库/" class="archive-article-date">
+
+        
+        <a href="/2019/11/26/DAO连接数据库/" class="archive-article-date">
   	<time datetime="2019-11-26T01:07:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/26/DAO连接数据库/">DAO连接数据库</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>package His_yh;</p>
+<p>import java.io.IOException;<br>import java.sql.Connection;<br>import java.sql.DriverManager;<br>import java.sql.PreparedStatement;<br>import java.sql.ResultSet;<br>import java.sql.Statement;<br>import java.util.List;</p>
+<p>import javax.mail.Flags.Flag;<br>import javax.servlet.ServletException;<br>import javax.servlet.annotation.WebServlet;<br>import javax.servlet.http.HttpServlet;<br>import javax.servlet.http.HttpServletRequest;<br>import javax.servlet.http.HttpServletResponse;</p>
+<p>import org.apache.jasper.tagplugins.jstl.core.ForEach;<br>import org.apache.jasper.tagplugins.jstl.core.If;</p>
+<p>import His_Dao.User;<br>import His_Dao.UserDao;</p>
+<p>/**</p>
+<ul>
+<li><p>Servlet implementation class LoginDaoServlet</p>
+</li>
+<li><p>/<br>@WebServlet(“/LoginDaoServlet”)<br>public class LoginDaoServlet extends HttpServlet {<br>private static final long serialVersionUID = 1L;</p>
+<p>  /**</p>
+<ul>
+<li><p>@see HttpServlet#HttpServlet()</p>
+</li>
+<li><p>/<br>public LoginDaoServlet() {<br>super();<br>}</p>
+<p>/**</p>
+</li>
+<li><p>@see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</p>
+</li>
+<li><p>/<br>protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {<br>  // TODO Auto-generated method stub<br>  //response.getWriter().append(“Served at: “).append(request.getContextPath());</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>}<br>    /**<br>     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)<br>     */<br>protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {<br>        // TODO Auto-generated method stub<br>        //doGet(request, response);<br>request.setCharacterEncoding(“utf-8”);<br>response.setCharacterEncoding(“utf-8”);<br>boolean flag = false;<br>        //通过DAO访问数据库，获取List集合<br>UserDao userDao=new UserDao();<br>List<user> userlist=userDao.findAllUser();<br>        //获取表单参数中的id、pwd<br>String username=request.getParameter(“username”);<br>String password=request.getParameter(“password”);<br>        //foreach循环对比以上两处获取的数据，登录判定<br>for(User user:userlist) {<br>if(user.getUsername().equals(username) &amp;&amp; user.getPassword().equals(password));<br>flag=true;<br>            //将成功登录的页面的用户的用户名放在Session中</user></p>
+<p>}</p>
+<p>if(flag=true) {<br>       //返回登录失败的页面<br>     //  request.getSession().setAttribute(“username”, username);<br>        //可以登陆，跳转到登录成功页面<br>request.getRequestDispatcher(“index1.jsp”).forward(request, response);<br>        //response.sendRedirect(“Success.jsp”);<br>}else {</p>
+<p>}<br>}<br>}</p>
+<p>package His_Dao;</p>
+<p>import java.sql.Connection;<br>import java.sql.PreparedStatement;<br>import java.sql.ResultSet;<br>import java.util.ArrayList;<br>import java.util.List;</p>
+<p>import His_utils.DBConnection;</p>
+<p>public class UserDao {<br>/*<br>       查询数据库所有行<br>       每行作为一个User对象，List是放所有的User对象<br> */<br>public List<user>findAllUser(){<br>ResultSet rs;<br>List<user> userlist=new ArrayList<user>();<br>    //1、连接数据库并查询数据库表user中的信息<br>Connection conn= DBConnection.getConnection();<br>System.out.println(“数据库连接成功”);<br>String sql=”SELECT * FROM user”;<br>    //2、将user表的查询结果集,放在List<user><br>try {<br>PreparedStatement ps=conn.prepareStatement(sql);<br>rs=ps.executeQuery();<br>while(rs.next()) {<br>System.out.println(“添加userid、password和username到User对象”);<br>User user=new User();//创建User对象<br>user.setUserid(rs.getInt(“userid”));<br>user.setPassword(rs.getString(“password”));<br>user.setUsername(rs.getString(“username”));<br>                //user.setTruename(rs.getString(“truename”));<br>userlist.add(user);//添加User到List中</user></user></user></user></p>
+<p>}<br>} catch (Exception e) {<br>            // TODO: handle exception<br>}<br>return userlist;</p>
+<pre><code>//3、将List&lt;User&gt;作为此方法的返回值</code></pre><p>}<br>}</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/26/DAO连接数据库/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/21/数据库单例连接TestDB/" class="archive-article-date">
-  	<time datetime="2019-11-21T03:01:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/21/数据库单例连接TestDB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库单例连接TestDB</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/数据库单例连接TestDB/">数据库单例连接TestDB</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/21/课数据库单例连接DBConnection/" class="archive-article-date">
-  	<time datetime="2019-11-21T02:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/课数据库单例连接DBConnection/">课数据库单例连接DBConnection</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/21/课堂笔记——jsp登陆流程梳理/" class="archive-article-date">
-  	<time datetime="2019-11-21T02:55:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/课堂笔记——jsp登陆流程梳理/">课堂笔记——jsp登陆流程梳理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/21/课堂笔记——jsp后注销/" class="archive-article-date">
-  	<time datetime="2019-11-21T02:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/课堂笔记——jsp后注销/">课堂笔记——jsp后注销</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/08/JSP项目常见问题解决方案辑录-v1/" class="archive-article-date">
-  	<time datetime="2019-11-08T01:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/08/JSP项目常见问题解决方案辑录-v1/">JSP项目常见问题解决方案辑录_v1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/08/MySQL数据库增删改查SQL语句/" class="archive-article-date">
-  	<time datetime="2019-11-08T01:55:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/08/MySQL数据库增删改查SQL语句/">MySQL数据库增删改查SQL语句</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -377,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
