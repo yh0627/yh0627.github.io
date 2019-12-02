@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>课堂笔记1202 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="JSP中的EL语言和java脚本： demo1127项目，登录后Session对象是有username （1）login.jsp-&amp;gt;servlet(LoginAction.java)-&amp;gt;welcome.jsp   欢迎页面 欢迎${username}登录   page-request-session-application  （2）login.jsp-&amp;gt;servlet(Login">
+<meta property="og:type" content="article">
+<meta property="og:title" content="课堂笔记1202">
+<meta property="og:url" content="http://yoursite.com/2019/12/02/课堂笔记1202/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JSP中的EL语言和java脚本： demo1127项目，登录后Session对象是有username （1）login.jsp-&amp;gt;servlet(LoginAction.java)-&amp;gt;welcome.jsp   欢迎页面 欢迎${username}登录   page-request-session-application  （2）login.jsp-&amp;gt;servlet(Login">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-02T08:16:10.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="课堂笔记1202">
+<meta name="twitter:description" content="JSP中的EL语言和java脚本： demo1127项目，登录后Session对象是有username （1）login.jsp-&amp;gt;servlet(LoginAction.java)-&amp;gt;welcome.jsp   欢迎页面 欢迎${username}登录   page-request-session-application  （2）login.jsp-&amp;gt;servlet(Login">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,295 +154,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-课堂笔记1202" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/02/百度关键词搜索技巧/" class="archive-article-date">
-  	<time datetime="2019-12-02T08:18:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/02/百度关键词搜索技巧/">百度关键词搜索技巧</a>
+    <h1 class="article-title" itemprop="name">
+      课堂笔记1202
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/02/课堂笔记1202/" class="archive-article-date">
+        
+        <a href="/2019/12/02/课堂笔记1202/" class="archive-article-date">
   	<time datetime="2019-12-02T08:10:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/02/课堂笔记1202/">课堂笔记1202</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSP中的EL语言和java脚本：</p>
+<p>demo1127项目，登录后Session对象是有username</p>
+<p>（1）login.jsp-&gt;servlet(LoginAction.java)-&gt;welcome.jsp</p>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<title>欢迎页面</title></head>
+<p>欢迎${username}登录</p>
 
-        <div class="article-info info-on-right">
-          
-          
+</html>
+page-request-session-application
 
+<p>（2）login.jsp-&gt;servlet(LoginAction.java)-&gt;welcome.jsp</p>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<title>欢迎页面</title></head>
+<p>欢迎<%=session.getattribute("username")%>登录</%=session.getattribute("username")%></p>
+
+</html>
+ (3)
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<title>欢迎页面</title></head>
+  <body><% out.print("<p>欢迎+"Session.getAttribute("username")"+登录<p></p>");%>
+</%></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<p>${}方式：“自动从内置对象中查找值”<br>&lt;%=%&gt;方式：“须明确指定从哪个对象里取值”</p>
+<p>例 &lt;%=x%&gt; 取当前页面的x 值</p>
+<p>&lt;%=request.getAttrbutr(“x”)%&gt;取request中的x值</p>
+<p>${x}首先从当前页面找有没有x，有就显示它，没有，查找request，再没有就查找session，再没有就查找application<br>再就有，就没办法了，输出空值。<br>&lt;%=x%&gt;如果x不存在，会报错。<br>${x}就算x不存在，也不会报错。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/02/课堂笔记1202/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/26/DAO连接数据库/" class="archive-article-date">
-  	<time datetime="2019-11-26T01:07:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/12/02/百度关键词搜索技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          百度关键词搜索技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/26/DAO连接数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DAO连接数据库</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/26/DAO连接数据库/">DAO连接数据库</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/21/数据库单例连接TestDB/" class="archive-article-date">
-  	<time datetime="2019-11-21T03:01:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/数据库单例连接TestDB/">数据库单例连接TestDB</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/21/课数据库单例连接DBConnection/" class="archive-article-date">
-  	<time datetime="2019-11-21T02:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/课数据库单例连接DBConnection/">课数据库单例连接DBConnection</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/21/课堂笔记——jsp登陆流程梳理/" class="archive-article-date">
-  	<time datetime="2019-11-21T02:55:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/课堂笔记——jsp登陆流程梳理/">课堂笔记——jsp登陆流程梳理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/21/课堂笔记——jsp后注销/" class="archive-article-date">
-  	<time datetime="2019-11-21T02:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/课堂笔记——jsp后注销/">课堂笔记——jsp后注销</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/08/JSP项目常见问题解决方案辑录-v1/" class="archive-article-date">
-  	<time datetime="2019-11-08T01:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/08/JSP项目常见问题解决方案辑录-v1/">JSP项目常见问题解决方案辑录_v1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/08/MySQL数据库增删改查SQL语句/" class="archive-article-date">
-  	<time datetime="2019-11-08T01:55:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/08/MySQL数据库增删改查SQL语句/">MySQL数据库增删改查SQL语句</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/29/课堂笔记1029am/" class="archive-article-date">
-  	<time datetime="2019-10-29T07:27:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/29/课堂笔记1029am/">课堂笔记1029am</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -462,8 +374,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
