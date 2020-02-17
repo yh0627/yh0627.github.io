@@ -152,561 +152,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-jsp知识点（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/10/jsp知识点（一）/">jsp知识点（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/10/jsp知识点（一）/" class="archive-article-date">
-  	<time datetime="2019-12-10T00:05:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>jsp运行原理—–jsp本质就是servlet<br>jsp在第一次被访问时会被Web容器翻译成servlet，再执行<br> 过程：<br> 第一次访问—-&gt;helloServlet.jsp—-&gt;helloServlet_jsp.java—-&gt;编译运行  </li>
-<li>JSP和servlet的区别、<br>1、JSP在本质上就是servlet，但两者的创建方式不一样，<br>2、JSP由HTML代码和JSP标签构成，可以方便的编写动态网页<br>3、采用Servlet来控制业务流程；用JSP来生成动态网页<br>4、jsp在第一次被访问时会被Web容器翻译成servlet  </li>
-<li>jsp指令（3个）<br> jsp的指令是指导jsp翻译和运行的命令，jsp包括三大指令：<br>   1）page指令 <pre><code>格式：&lt;%@ page 属性名1= &quot;属性值1&quot; 属性名2= &quot;属性值2&quot; ...%&gt;  </code></pre> 2）include指令<pre><code>格式：&lt;%@ include file=&quot;被包含的文件地址&quot;%&gt;   </code></pre> 3）taglib指令<pre><code>格式：&lt;%@ taglib uri=&quot;标签库地址&quot; prefix=&quot;前缀&quot;%&gt;  </code></pre></li>
-<li>JSTL核心库c的常用标签<br> 1）&lt;c:if&gt;标签<br> 2）&lt;c:for&gt;标签<br> 3）&lt;c:while&gt;标签<br> 4）&lt;c:forEach&gt;标签<br> 5）&lt;c:choose&gt;标签<br> 6）&lt;c:&gt;标签<br> 7）&lt;c:&gt;标签<br> 8）&lt;c:&gt;标签  </li>
-<li>jsp主要内置对象有： application      、exception        、 pageContext         、  request        、 session  、_____response、out、config、page。  </li>
-<li>如何使用 JSP 读取 表单数据？<br>答：JSP根据情况自动解析并使用下面的方法处理表单数据：getParameter()：调用 request.getParameter() 方法来获取一个表单参数的值。<br> getParameterValues()：如果参数出现多次，调用该方法，返回多个值。  </li>
-<li>JavaBean中用- -组set 方法设置Bean的私有属性值，get 方法获得Bean的私有属性值。set 和get 方法。名称与属性名称之间必须对应，也就是:如果属性名称为xxx，那么set和get方法的名称必须为setXxx()_和  getXxx()_。  </li>
-<li>forward（转发）和redirect（重定向）的区别<br>a)      forward：<br>requset.getRequsetDispatcher(“/<strong><em>.jsp”).forward(request,response)<br>　　  redirect：<br>response.sendRedirect(“/</em></strong>.jsp”)<br>b)      forward是服务器端发起的请求；redirect是客户端发起的请求；<br>c)      forward只有一次请求；redirect会产生2次请求。<br>d)      forward数据会同时转发过去;redirect数据不会同时传递过去。<br>forward保留request中所有值；redirect不保留。一次请求<br>Forward页面url不变化，redirect页面url变更。二次请求  </li>
-<li>doGet与doPost方法的两个参数是什么?什么情况下调用<br>a)      HttpServletRequest和HttpServletResponse<br>b)      JSP页面中的form标签里的method属性为get时调用doGet（）为post时调用doPost（）；超链接跳转页面时调动的是doGet（）  </li>
-<li>JavaWeb中四大域对象及作用范围<br>a)      PageContext ： 作用范围在整个页面（一个页面）<br>b)      HttpRequest ： 作用范围在一次请求<br>c)      HttpSession ： 这是JavaWeb的一种会话机制，作用在整个会话中<br>d)      ServletContext ：作用范围在整个web应用  </li>
-<li>简单说说tomcat的配置？<br>JAVA_HOME=JDK的根目录<br>CATALINA_HOME=tomcat的根目录<br>CATALINA-HOME\conf\server.xml:可以配置tomcat的端口，可以配置tomcat中下连接池。<br>CATALINA-HOME\common\lib:存放公用的类包  </li>
-<li>Servlet的生命周期方法有<em>init__,<strong><em>service___</em></strong>,__destroy</em>  </li>
-<li>Servlet中重定向使用的是<strong>response_</strong>对象的_sendRedirect__方法  </li>
-<li>编写Servlet时只需要根据应用的需要，重写<strong>doGet_或者</strong>doPost__方法即可  </li>
-<li>Servlet 中使用Session对象的步骤为:调用HttpServletRequest.getSession( 得到Session对象，查看Session对象，在会话中保存数据。  </li>
-<li>如何执行一个线程安全的JSP?<br>只需增加如下指令<br>&lt;%@ page isThreadSafe=”false” %&gt;   </li>
-<li>什么是一个 exception 对象？<br>答：exception 对象是一个包装器，包含从上一个页面抛出的异常。它通常用于生成一个适当的错误条件的响应。  </li>
-<li>Servlet生命周期<br>init（）方法<br>service（）方法<br>destroy（）方法  </li>
-<li>jsp四大作用域<br>pageScope：变量范围是页面范围<br>requestScope：变量范围是请求范围<br>sessionScope：变量范围是会话范围<br>applicationScope：变量范围是应用范围  </li>
-<li>什么是过滤器？<br>答：JSP 过滤器是 Java 类，它可以用于 JSP 编程中的以下目的：<br>它们在后台访问一个资源之前，拦截来自客户端的请求。<br>在它们将响应发送回客户端之前操作来自服务器的响应。  </li>
-<li>一些 JSP 操作的名称？<br>答：jsp:include， jsp:useBean， jsp:setProperty， jsp:getProperty， jsp:forward， jsp:plugin，jsp:element， jsp:attribute， jsp:body， jsp:text。<br>格式：<a href="jsp:param" target="_blank" rel="noopener">jsp:param</a>  </li>
-<li>什么是cookie？什么是session？session和cookie的区别<br>a)      Cookie是客户端保存用户信息的一种机制，用来记录用户的一些信息，它的过期时间可以任意设置，如果不主动清除，很长一段时间都能保留<br>b)      Session是在无状态的HTTP协议下，服务端记录用户状态时用于标识具体用户的机制，它是在服务端保存的用来跟踪用户的状态的数据结构，可以保存在文件、数据库、或者集群中。</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/10/jsp知识点（一）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-百度关键词搜索技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/02/百度关键词搜索技巧/">百度关键词搜索技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/02/百度关键词搜索技巧/" class="archive-article-date">
-  	<time datetime="2019-12-02T08:18:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>百度搜索技巧</p>
-<p>1、+加号——强制包含关键词<br>将“+”后面的关键词强制包含到搜索结果中</p>
-<p>2、-减号——排除关键词或者网站<br>在某个字词或网站网址前添加短横 (-) 可排除所有包含该字词的搜索结果。在搜索“汽车品牌美洲虎”和“动物美洲虎”这类同义词时，此功能特别实用。<br>提示：您也可以根据其他运算符排除搜索结果，例如排除特定网站中的所有搜索结果。例：美洲虎速度 -汽车或熊猫 -site:wikipedia.org</p>
-<p>3、””双引号和书名号——精确匹配<br>查询词加上双引号“”则表示查询词不能被拆分，在搜索结果中必需完整出现，可以对查询词精确匹配。如果不加双引号“”经过百度分析后可能会拆分。<br>查询词加上书名号《》有两层特殊功能，一是书名号会出现在搜索结果中；二是被书名号扩起来的内容，不会被拆分。 书名号在某些情况下特别有效果，比如查询词为手机，如果不加书名号在很多情况下出来的是通讯工具手机，而加上书名号后，《手机》结果就都是关于电影方面的了。</p>
-<p>4、（|）——并行搜索<br>逻辑“或”的操作，使用”A | B”来搜索”或者包含关键词A，或者包含关键词B”的网页。使用同义词作关键词并在各关键词中使用“|”运算符可提高检索的全面性。如：“计算机|电脑”搜索即可。</p>
-<p>5、site——在特定网站或域中搜索<br>仅搜索来自特定网站的结果。site:”后面跟的站点域名，不要带“http://”。site:和站点名之间，不要带空格。<br>例：奥林匹克 site:nytimes.com<br>提示：也可以在特定顶级域（如 .org 或 .edu）或国家/地区顶级域（如 .de 或 .jp）中进行搜索。例：奥林匹克 site:.gov</p>
-<p>6、inurl——在特定url链接中搜索<br>在搜索中加入“inurl:”可以限定在网站url链接中搜索网站信息。由于关键词出现在url 中对排名有一定影响，使用inurl:搜索可以更准确地找到竞争对手。<br>例如：auto视频教程 inurl:video<br>搜索词“auto视频教程”是可以出现在网页的任何位置，而“video”则必须出现在网页url中。</p>
-<p>7、intitle——在特定的网页标题中搜索<br>在搜索中加入“intitle：”可以限定在网页标题title中搜索网站信息。intitle:和后面的关键词之间不要有空格。<br>例如:出国留学 intitle:美国<br>搜索词“出国留学”可以出现在网页的任何位置，而“美国”必需出现在网页title中。<br>使用intitle 指令找到的文件是更准确的竞争页面。如果关键词只出现在页面可见文字中，而没有出现在title 中，大部分情况是并没有针对关键词进行优化，所以也不是有力的竞争对手。</p>
-<p>8、Filetype——在特定文档格式中搜索<br>在搜索中加入“Filetype:”可以限定在文档格式中搜索网页信息，支持文档格式有pdf，ps,dwf, kml, kmz, doc，xls，ppt，rtf,swf,all(所有上面的文档格式)。对于找文档资料相当有帮助。<br>例如：photoshop实用技巧 filetype:doc</p>
-<p>9．“开始连接”、“正在连接”——搜索<strong>*<br>网络上有很多热心人提供*</strong>的下载地址。为了表明真实可靠，把下载过程也同时附上。现在最流行的下载工具是flashget和迅雷。 Flashget下载开始就是“正在连接”，迅雷则是“开始连接”。所以，可以用想找的电影名字，加上“开始连接”或者“正在连接”，来寻找***。 检索式形式如：“电影名 开始连接”、电影名 正在连接”、“电影名 (开始连接 | 正在连接)” 。如：哈利波特4 开始连接 、倩女幽魂 正在连接 、史前一万年 (正在连接 | 开始连接) 。</p>
-<p>10.『』——查找论坛版块<br>百度作为国人自己开发的搜索引擎，支持的中文标点符号最多。『』是直行双引号。 检索式形式如： 『论坛版块名称』 。如：『影视交流』。PS：这个直行双引号怎么输入呢？调出中文输入法，选择“软键盘”——“标点符号”，就能找到。</p>
-<p>11.“文本方式”——查找论坛内容<br>论坛是个宝库，资源丰富，人才荟萃。交流的气息浓，在反复的讨论和回帖中，可以获得相对真实的信息。如：文本方式 可口可乐 、文本方式 超级女声。</p>
-<p>12.intitle:bookmarks——查询别人的收藏夹<br>IE浏览器的收藏夹导出后，网页的标题（title）是bookmarks。百度的intitle语法可以把搜索范围限定在网页标题内。所以，用intitle语法可以查询别人的收藏夹，结果应该都是精品，没有哪个人会把垃圾放到自己收藏夹的。如：小说 intitle:bookmarks \查找小说的精彩站点 语文 intitle:bookmarks \查找语文方面的精彩站点</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/02/百度关键词搜索技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-课堂笔记1202" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/02/课堂笔记1202/">课堂笔记1202</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/02/课堂笔记1202/" class="archive-article-date">
-  	<time datetime="2019-12-02T08:10:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSP中的EL语言和java脚本：</p>
-<p>demo1127项目，登录后Session对象是有username</p>
-<p>（1）login.jsp-&gt;servlet(LoginAction.java)-&gt;welcome.jsp</p>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-<title>欢迎页面</title></head>
-<p>欢迎${username}登录</p>
-
-</html>
-page-request-session-application
-
-<p>（2）login.jsp-&gt;servlet(LoginAction.java)-&gt;welcome.jsp</p>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-<title>欢迎页面</title></head>
-<p>欢迎<%=session.getattribute("username")%>登录</%=session.getattribute("username")%></p>
-
-</html>
- (3)
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-<title>欢迎页面</title></head>
-  <body><% out.print("<p>欢迎+"Session.getAttribute("username")"+登录<p></p>");%>
-</%></body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-<p>${}方式：“自动从内置对象中查找值”<br>&lt;%=%&gt;方式：“须明确指定从哪个对象里取值”</p>
-<p>例 &lt;%=x%&gt; 取当前页面的x 值</p>
-<p>&lt;%=request.getAttrbutr(“x”)%&gt;取request中的x值</p>
-<p>${x}首先从当前页面找有没有x，有就显示它，没有，查找request，再没有就查找session，再没有就查找application<br>再就有，就没办法了，输出空值。<br>&lt;%=x%&gt;如果x不存在，会报错。<br>${x}就算x不存在，也不会报错。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/02/课堂笔记1202/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-DAO连接数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/26/DAO连接数据库/">DAO连接数据库</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/26/DAO连接数据库/" class="archive-article-date">
-  	<time datetime="2019-11-26T01:07:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>package His_yh;</p>
-<p>import java.io.IOException;<br>import java.sql.Connection;<br>import java.sql.DriverManager;<br>import java.sql.PreparedStatement;<br>import java.sql.ResultSet;<br>import java.sql.Statement;<br>import java.util.List;</p>
-<p>import javax.mail.Flags.Flag;<br>import javax.servlet.ServletException;<br>import javax.servlet.annotation.WebServlet;<br>import javax.servlet.http.HttpServlet;<br>import javax.servlet.http.HttpServletRequest;<br>import javax.servlet.http.HttpServletResponse;</p>
-<p>import org.apache.jasper.tagplugins.jstl.core.ForEach;<br>import org.apache.jasper.tagplugins.jstl.core.If;</p>
-<p>import His_Dao.User;<br>import His_Dao.UserDao;</p>
-<p>/**</p>
-<ul>
-<li><p>Servlet implementation class LoginDaoServlet</p>
-</li>
-<li><p>/<br>@WebServlet(“/LoginDaoServlet”)<br>public class LoginDaoServlet extends HttpServlet {<br>private static final long serialVersionUID = 1L;</p>
-<p>  /**</p>
-<ul>
-<li><p>@see HttpServlet#HttpServlet()</p>
-</li>
-<li><p>/<br>public LoginDaoServlet() {<br>super();<br>}</p>
-<p>/**</p>
-</li>
-<li><p>@see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</p>
-</li>
-<li><p>/<br>protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {<br>  // TODO Auto-generated method stub<br>  //response.getWriter().append(“Served at: “).append(request.getContextPath());</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>}<br>    /**<br>     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)<br>     */<br>protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {<br>        // TODO Auto-generated method stub<br>        //doGet(request, response);<br>request.setCharacterEncoding(“utf-8”);<br>response.setCharacterEncoding(“utf-8”);<br>boolean flag = false;<br>        //通过DAO访问数据库，获取List集合<br>UserDao userDao=new UserDao();<br>List<user> userlist=userDao.findAllUser();<br>        //获取表单参数中的id、pwd<br>String username=request.getParameter(“username”);<br>String password=request.getParameter(“password”);<br>        //foreach循环对比以上两处获取的数据，登录判定<br>for(User user:userlist) {<br>if(user.getUsername().equals(username) &amp;&amp; user.getPassword().equals(password));<br>flag=true;<br>            //将成功登录的页面的用户的用户名放在Session中</user></p>
-<p>}</p>
-<p>if(flag=true) {<br>       //返回登录失败的页面<br>     //  request.getSession().setAttribute(“username”, username);<br>        //可以登陆，跳转到登录成功页面<br>request.getRequestDispatcher(“index1.jsp”).forward(request, response);<br>        //response.sendRedirect(“Success.jsp”);<br>}else {</p>
-<p>}<br>}<br>}</p>
-<p>package His_Dao;</p>
-<p>import java.sql.Connection;<br>import java.sql.PreparedStatement;<br>import java.sql.ResultSet;<br>import java.util.ArrayList;<br>import java.util.List;</p>
-<p>import His_utils.DBConnection;</p>
-<p>public class UserDao {<br>/*<br>       查询数据库所有行<br>       每行作为一个User对象，List是放所有的User对象<br> */<br>public List<user>findAllUser(){<br>ResultSet rs;<br>List<user> userlist=new ArrayList<user>();<br>    //1、连接数据库并查询数据库表user中的信息<br>Connection conn= DBConnection.getConnection();<br>System.out.println(“数据库连接成功”);<br>String sql=”SELECT * FROM user”;<br>    //2、将user表的查询结果集,放在List<user><br>try {<br>PreparedStatement ps=conn.prepareStatement(sql);<br>rs=ps.executeQuery();<br>while(rs.next()) {<br>System.out.println(“添加userid、password和username到User对象”);<br>User user=new User();//创建User对象<br>user.setUserid(rs.getInt(“userid”));<br>user.setPassword(rs.getString(“password”));<br>user.setUsername(rs.getString(“username”));<br>                //user.setTruename(rs.getString(“truename”));<br>userlist.add(user);//添加User到List中</user></user></user></user></p>
-<p>}<br>} catch (Exception e) {<br>            // TODO: handle exception<br>}<br>return userlist;</p>
-<pre><code>//3、将List&lt;User&gt;作为此方法的返回值</code></pre><p>}<br>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/26/DAO连接数据库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库单例连接TestDB" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/21/数据库单例连接TestDB/">数据库单例连接TestDB</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/21/数据库单例连接TestDB/" class="archive-article-date">
-  	<time datetime="2019-11-21T03:01:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>package demo.sam.singleton;<br>import java.sql.*;  </p>
-<p>public class TestDB {<br>/*public static void main(String args[]) throws Exception{<br>    //Always returns the same instance<br>        Connection connection = DBConnection.getConnection();        </p>
-<p>ResultSet rows = null;<br>        Statement s = connection.createStatement();<br>        String select = “select * from student;”;<br>        rows = s.executeQuery(select);<br>        System.out.println(rows.next());<br>        while(rows.next()){<br>            System.out.println(rows.getRow()+”abc”);  </p>
-<p>System.out.println(rows.getString(“name”));<br>        }<br>        //Get connection again, still same instance<br>        Connection connection2 = DBConnection.getConnection();<br>        if(connection2 == connection){<br>            System.out.println(“Same Instance”);<br>        }<br>    }*/</p>
-<p>public static void main(String[] args) {<br>        Connection conn = DBConnection.getConnection();<br>        String sql = “select * from user”;//查询user表<br>        try {<br>        PreparedStatement ps = conn.prepareStatement(sql);//PreparedStatement对象可以防止sql注入，而Statement不能防止sql注入,参考<a href="https://blog.csdn.net/czh500/article/details/88202971" target="_blank" rel="noopener">https://blog.csdn.net/czh500/article/details/88202971</a><br>        ResultSet rs = ps.executeQuery();//数据库查询结果集ResultSet对象<br>        while (rs!=null&amp;&amp;rs.next()) {<br>            //在此添加操作<br>            rs.close();//关闭rs<br>            ps.close();//关闭ps<br>        }<br>    } catch (SQLException e) {<br>        // TODO Auto-generated catch block<br>        e.printStackTrace();<br>    }finally {<br>        DBConnection.closeConnection(conn);<br>    }<br>    }<br>} </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/21/数据库单例连接TestDB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-课数据库单例连接DBConnection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/21/课数据库单例连接DBConnection/">课数据库单例连接DBConnection</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/21/课数据库单例连接DBConnection/" class="archive-article-date">
-  	<time datetime="2019-11-21T02:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>package demo.sam.singleton;<br>import java.sql.*;  </p>
-<p>public class DBConnection{<br>    //声明Connection的单例对象<br>    private static Connection connection = null;<br>    /**<br>     * 获取Connection静态实例, 确保其独一性<br>     <em>/<br>    public static Connection getConnection(){<br>        if(DBConnection.connection == null){//若Connection未被创建<br>            initConnection();//赋值<br>        }<br>        return DBConnection.connection;//返回Connection的单例对象<br>    }<br>    /*</em><br>     * 初始化JDBC连接实例对象<br>     */<br>    private static void initConnection(){<br>        try{<br>            Class.forName(“com.mysql.jdbc.Driver”);//加载驱动<br>            String url = “jdbc:mysql://localhost:3306/stu”;<br>            String user = “root”;<br>            String pw = “root”;<br>            DBConnection.connection =DriverManager.getConnection(url, user, pw);<br>        }<br>        catch (ClassNotFoundException e){<br>            System.out.println(e.getMessage());<br>            System.exit(0);<br>        }<br>        catch (SQLException e){<br>            System.out.println(e.getMessage());<br>            System.exit(0);<br>        }<br>        catch (Exception e){<br>        }<br>    }  </p>
-<p>/**<br>     * 关闭数据库连接<br>     * @param conn Connection对象<br>     */<br>    public static void closeConnection(Connection conn){<br>        // 判断conn是否为空<br>        if(conn != null){<br>            try {<br>                conn.close();    // 关闭数据库连接<br>            } catch (SQLException e) {<br>                e.printStackTrace();<br>            }<br>        }<br>    }<br>}  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/21/课数据库单例连接DBConnection/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-课堂笔记——jsp登陆流程梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/21/课堂笔记——jsp登陆流程梳理/">课堂笔记——jsp登陆流程梳理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/21/课堂笔记——jsp登陆流程梳理/" class="archive-article-date">
-  	<time datetime="2019-11-21T02:55:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSP登录<br>1.表单提交数据到Servlet的方式<br>整体流程：登录页面提交form表单(get或post方式到action指定的位置)的数据到一个Servlet，在其内进行判定是否登录。<br>(1)Servlet中的doPost()方法：<br>    A.用Request.getParameter(“[input标签的name属性名]”)方法获取登录页面提交过来的表单数据。<br>    B.通过sql的JDBC的Jar包导入，进行数据库连接(连接代码见以往的连接代码)，用sql(类似于select * from user where id =’’, pwd=’’;)查询语句。<br>    C.比对判定以上两项的数据，页面跳转(“转发”和”重定向”两种方式取其一)。<br>(2)跳转到的页面：登录成功页面(在Session中保存用户信息)/不跳转  </p>
-<p>2.表单提交数据到JSP的方式<br>整体流程：登录页面提交form表单(get或post方式到action指定的位置)的数据到一个JSP，在其内进行判定是否登录。<br>(1)JSP中的&lt;% %&gt;脚本内容：<br>    A.用Request.getParameter(“[input标签的name属性名]”)方法获取登录页面提交过来的表单数据。<br>    B.通过sql的JDBC的Jar包导入，进行数据库连接(连接代码见以往的连接代码)，用sql(类似于select * from user where id =’’, pwd=’’;)查询语句。<br>    C.比对判定以上两项的数据，页面跳转(“转发”和”重定向”两种方式取其一)。<br>(2)跳转到的页面：登录成功页面(在Session中保存用户信息)/重定向到登录JSP页面，为地址栏添加一个属性(response.sendRedirect(“index.jsp?info=”登录失败”))  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/21/课堂笔记——jsp登陆流程梳理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-课堂笔记——jsp后注销" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -951,9 +396,484 @@ select 列 别名 from 表名;      </code></pre><p>语句的执行顺序：from
 
 
   
+    <article id="post-课堂笔记1029am" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/29/课堂笔记1029am/">课堂笔记1029am</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/29/课堂笔记1029am/" class="archive-article-date">
+  	<time datetime="2019-10-29T07:27:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>总结回顾   </p>
+<h2 id="JSP-Servlet"><a href="#JSP-Servlet" class="headerlink" title="JSP/Servlet"></a>JSP/Servlet</h2><h1 id="一、相同点："><a href="#一、相同点：" class="headerlink" title="一、相同点："></a>一、相同点：</h1><ol>
+<li>处理后台逻辑，作为mvc控制；</li>
+<li>9个内置对象(request、response、session、application、page、out、 config、pageContext、exception)，内置对象作用域：page &lt; request/response &lt; session &lt; application。   page.setAttribute(“username”,”sam”); String id = page.getAttribute(“username”); request.setAttribute(“username”,”sam”); String id = request.getAttribute(“username”); session.setAttribute(“username”,”sam”); String id = session.getAttribute(“username”); application.setAttribute(“username”,”sam”); String id = application.getAttribute(“username”); </li>
+<li>都可用Java语言。  </li>
+<li>百度：可以写Java语句，包括流程控制、事务管理。Jsp是在Servlet基础上推出的，即Jsp从本质上来讲是Servlet，所以Jsp具有Servlet的功能，也就理所当然支持Java语句。  </li>
+</ol>
+<h1 id="二、不同点："><a href="#二、不同点：" class="headerlink" title="二、不同点："></a>二、不同点：</h1><ol>
+<li>JSP可作为前端显示页面，Servlet只能作后台控制; </li>
+<li>JSP可内嵌html、EL、JSTL和Java，而Servlet只能有 Java；</li>
+<li>JSP控制不需要项目中去注册、而Servlet必须注册(web.xml/注解) </li>
+<li>JSP常作为小型项目，Servlet常用作 框架类的大型项目；</li>
+</ol>
+<p>本堂课程知识要点<br>页面跳转<br>JSP Servlet jsp如何获取数据，并显示出来(out对象)。<br>作业：用提交表单数据到jsp的方式，实现登录功能。<br>拓展：<br>———————————————————————————————————————————————————————————————————————————————<br>Spring、SpringMVC(Struts2.0)、MyBatis SSM SpringBoot SpringCloud</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/29/课堂笔记1029am/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-课堂笔记1028pm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/28/课堂笔记1028pm/">课堂笔记1028pm</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/28/课堂笔记1028pm/" class="archive-article-date">
+  	<time datetime="2019-10-28T13:19:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JSP、"><a href="#JSP、" class="headerlink" title="JSP、"></a>JSP、</h2><h1 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h1><p>（一）. Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求，所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求一次）。<br>（二）. Response：对客户的请求做出的响应，向客户端发送数据，该对象可以设置重定向response.sendRedirect(String URL)，是客户端行为，是两次请求，所以页面的URL为二次请求处理的响<br>应页面的URL。<br>（三）.Session：该对象是客户端与服务器的一次会话，只要不关闭服务器的所有页面（离开这个服务器），就只视为一次会话。Session在第一个JSP页面被装载时自动创建，完成会话期管理。当一个客户首次访问服务器上的一个JSP页面时，JSP 引擎产生一个Session对象，同时分配一个String类型的ID号，JSP引擎同时将这换个ID号发送到客户端，存放在Cookie（要求服务器启用Cookie权限）中，这样Session对象，直到客户关闭浏览器后，服务器端该客户的Session对象才取消，并且和客户的会话对应关系消失。当客户重新打开浏览器再连接到该服务器时，服务器为该客户再重新创建一个新的Session对象拥有新的ID号。常用方法为String getId()获取ID号以及Boolean isNew()判断是否是一个新的客户。Session可以理解为线程私有的。<br>（四）. Application：服务器启动时产生，共享性。<br>（五）. Out：Out对象本质是一个输出流，用来向客户端输出数据。Out对象用于各种数据的输出。常用<br>方法为：<br>out.print()：输出各种类型数据。<br>out.newLine()：输出一个换行符。<br>out.close()：关闭流。<br>（六）. Config：配置对象。<br>（七）. Page：页面。<br>（八）. PageContext：页面应用上下文环境。可通过该对象获取依赖于页面上下文环境的Node。<br>（九）. Exception：只有在处理异常的网页中可以直接访问exception隐式对象。  </p>
+<h2 id="二、JSP七种传参方式"><a href="#二、JSP七种传参方式" class="headerlink" title="二、JSP七种传参方式"></a>二、JSP七种传参方式</h2><ul>
+<li>（一）JavaBean：&lt;jsp:useBean id=”XXX” class=”JavaBean的全限定名(page+calssName)”scope=”session” /&gt;</li>
+<li>（二）Session：session.setAttribute(String key,Object value)/seesion.getAttribute(String key)</li>
+<li>（三）Application:application.setAttribute(String key,Object value)/application.getAttribute(String key)</li>
+<li>（四）Request:<br>request.setParater(String key,String value)/request.getParater(String key)<br>request.setAttribute(String key,Object value)/request.getAttribute(String key)  </li>
+<li>（五）JSP动作指令：&lt;jsp:forward/redirect page=”XXX.jsp”&gt; &lt;jsp:param name=”key-x” value=”value-x”/&gt; &lt;jsp:param name=”key-y” value=”value-y” /&gt; &lt;/jsp:forward/redirect&gt;</li>
+<li>（六）Form表单：<blockquote>
+<p>用户操作</p>
+</blockquote>
+</li>
+<li>（七）URL传参：URL.jsp?参数1 的key=参数1的value&amp; 参数n的key=参数n 的value  <h2 id="三、JSP四个作用域"><a href="#三、JSP四个作用域" class="headerlink" title="三、JSP四个作用域"></a>三、JSP四个作用域</h2></li>
+<li>（一）Application：共享、全局、服务器启动时产生，重启服务器销毁。可以包含很多个session。</li>
+<li>（二）Session：会话。隔离。生命周期是从用户发起链接服务器至彻底与服务器完全断开。可以包含很多个request。所谓当前会话，就是指从用户打开浏览器开始，到用户关闭浏览器这中间的过程。</li>
+<li>（三）Request：有效域是当前请求周期。所谓请求周期，就是指从http请求发起，到服务器处理结束，返回响应的整个过程。在这个过程中可能使用forward的方式跳转了多个jsp页面，在这些页面里你都可以使用这个变量。</li>
+<li>（四）Page：有效域是当前页面，可以把参数放入PageContext中，只有跳转就失效。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/28/课堂笔记1028pm/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-课堂笔记1021" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/21/课堂笔记1021/">课堂笔记1021</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/21/课堂笔记1021/" class="archive-article-date">
+  	<time datetime="2019-10-21T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><h2 id="梳理回顾"><a href="#梳理回顾" class="headerlink" title="梳理回顾"></a><strong>梳理回顾</strong></h2><ul>
+<li><p>前端开发：HTML、CSS、JS(JavaScript)   </p>
+</li>
+<li><p>企业中前端工程师：使用前端框架(BootStrap/easyUI/VUE/Angular)开发。  </p>
+</li>
+<li><p>后端开发：JavaSE、JSP、JavaWeb(良好的稳定性、健壮性优于其它语言。企业级应用首选之一)   </p>
+</li>
+<li><p>企业中的后端工程师：使用后端框架(SpringMVC/Struts2、Spring、myBatis)开发。  </p>
+</li>
+<li><p>“全栈工程师”   </p>
+</li>
+<li><p>C语言:工业控制、嵌入式设备(电磁炉、吸尘器、微波炉……)。   </p>
+<h2 id="jsp"><a href="#jsp" class="headerlink" title="jsp"></a><strong>jsp</strong></h2><p>JSP项目是在后台开发框架成熟前使用较多的一种JavaWeb技术，后期会逐渐过度到后台框架。jvm只能处理 java编译的class文件。</p>
+<h3 id="JSP和后台框架"><a href="#JSP和后台框架" class="headerlink" title="JSP和后台框架"></a><strong>JSP和后台框架</strong></h3><p>核心技术均为Servlet Servlet在jdk中的包为：javax.servlet.http.HttpServlet。  </p>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><blockquote>
+<p><strong>1. jsp和servlet的区别和联系：</strong><br>1). jsp经编译后就变成了Servlet. (JSP的本质就是Servlet，JVM只能识别java 的类(.class)，不能识别JSP的代码,Web容器将JSP的代码编译成JVM能够识别的java类)<br>2).jsp更擅长表现于 页面显示,servlet更擅长于逻辑控制.<br>3).Servlet中没有内置对象，Jsp中的内置对象都是必须通过 HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到. Jsp是Servlet的一种简化， 使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器 完成。 而Servlet则是个完整的Java类，这个类的Service方法用于生成对客户端的响应。<br><strong>2. 联系：</strong>  </p>
+</blockquote>
+</li>
+<li><p>JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。  </p>
+</li>
+<li><p>Servlet和JSP最主要的不同点在于：   </p>
+</li>
+<li><p>Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。（jsp里面是有html标签， servlet没有html标签）   </p>
+</li>
+<li><p>而JSP的情况是Java和HTML可以组合成一个扩展名为.jsp的文件。(JSP=java类+HTML)   </p>
+</li>
+<li><p>JSP侧重于视图，Servlet主要用于控制逻辑。(JSP不能脱离Servlet，但Servelet可独立存在)   </p>
+</li>
+<li><p>Servlet更多的是类似于一个Controller，用来做控制。 </p>
+<h2 id="servlet类中的方法"><a href="#servlet类中的方法" class="headerlink" title="servlet类中的方法"></a><strong>servlet类中的方法</strong></h2><h3 id="servlet中的方法"><a href="#servlet中的方法" class="headerlink" title="servlet中的方法"></a>servlet中的方法</h3><p>doGet()方法：用get方式传输网络数据 get方式：明文传参(地址栏显示)、传输数据较小、<br>doPost()方法：用post方式传输网络数据 post方式：暗文传参(地址栏不显示)、传输数据较大、  </p>
+<h2 id="页面跳转方式"><a href="#页面跳转方式" class="headerlink" title="页面跳转方式"></a><strong>页面跳转方式</strong></h2><h3 id="页面跳转的方式分类："><a href="#页面跳转的方式分类：" class="headerlink" title="页面跳转的方式分类："></a>页面跳转的方式分类：</h3><ol>
+<li>转发：foward(地址栏URL不变)  <blockquote>
+<p>request.getRequestDispatcher(“hello.jsp”).forward(request，response);//页面转发        </p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li>重定向：redirect(地址栏URL变化)  <blockquote>
+<p>response.sendRedirect(“资源的URL”);   </p>
+</blockquote>
+</li>
+<li>两种跳转方式异同：   </li>
+</ol>
+<ul>
+<li>转发使用的是getRequestDispatcher()方法;重定向使用的是sendRedirect();  </li>
+<li>转发：浏览器URL的地址栏不变。重定向：浏览器URL的地址栏改变；  </li>
+<li>转发是服务器行为，重定向是客户端行为；  </li>
+<li>转发是浏览器只做了一次访问请求。重定向是浏览器做了至少两次的访问请求；   </li>
+<li>转发2次跳转之间传输的信息不会丢失，重定向2次跳转之间传输的信息会丢失（request范围）。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/21/课堂笔记1021/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-课堂笔记0929" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/13/课堂笔记0929/"> 课堂笔记0929 </a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/13/课堂笔记0929/" class="archive-article-date">
+  	<time datetime="2019-10-13T03:45:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaOOP-面向对象-课程的项目："><a href="#JavaOOP-面向对象-课程的项目：" class="headerlink" title="JavaOOP(面向对象)课程的项目："></a>JavaOOP(面向对象)课程的项目：</h2><h3 id="FeiGe项目-3个模块，相互独立、文件的读写"><a href="#FeiGe项目-3个模块，相互独立、文件的读写" class="headerlink" title="FeiGe项目(3个模块，相互独立、文件的读写)"></a>FeiGe项目(3个模块，相互独立、文件的读写)</h3><h4 id="学生管理系统-登录、信息的增删改查-gt-改写为访问数据库登录验证！"><a href="#学生管理系统-登录、信息的增删改查-gt-改写为访问数据库登录验证！" class="headerlink" title="学生管理系统(登录、信息的增删改查)-&gt;改写为访问数据库登录验证！"></a>学生管理系统(登录、信息的增删改查)-&gt;改写为访问数据库登录验证！</h4><hr>
+<p>MySQL安装： 1 版本：5.6&lt;-&gt;5.7 2 安装：.exe(“下一步”)、.zip安装(命令提示符中配置)<br>Oracle、SQL Server、MongDB、Redis  </p>
+<ul>
+<li>项目与数据库连接： JAVA项目：JDBC(Java Database Bridge Connector) .NET项目：ODBC  </li>
+<li>作业：安装MySQL数据库stu，添加user表，至少有id和pwd两个字段；将学生管理系统添加数据库连接，通过 查询数据库user表的id和pwd字段，实现判断登录。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/13/课堂笔记0929/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-我真的是" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/12/我真的是/">我真的是</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/12/我真的是/" class="archive-article-date">
+  	<time datetime="2019-10-12T06:30:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#太难了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/12/我真的是/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/12/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/12/hello-world/" class="archive-article-date">
+  	<time datetime="2019-10-12T06:02:04.118Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/12/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
 
